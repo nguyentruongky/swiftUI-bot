@@ -35,9 +35,9 @@ struct HeaderView: View {
                 Text("Good morning, Samantha")
                     .bold()
                     .font(.system(size: 20))
-                    .foregroundColor(Color(hex: "#1C1C1E"))
+                    .foregroundColor(Color.primary)
                 Text("How can I help you today?")
-                    .foregroundColor(Color(hex: "#868A99"))
+                    .foregroundColor(Color.secondary)
             }
 
             Spacer()
@@ -48,6 +48,7 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView()
+        HeaderView().preferredColorScheme(.dark)
+        HeaderView().preferredColorScheme(.light)
     }
 }

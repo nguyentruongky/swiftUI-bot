@@ -36,7 +36,7 @@ struct ChatView: View {
             if waitingForBot {
                 HStack {
                     LottieView()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 150, height: 150)
                     Spacer()
                 }
                 .padding(.horizontal, 16)

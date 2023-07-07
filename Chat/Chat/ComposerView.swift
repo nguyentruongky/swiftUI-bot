@@ -14,11 +14,11 @@ struct ComposerView: View {
 
     var body: some View {
         HStack {
-            TextField("Type something", text: $messageText)
+            TextField("Ask me anything", text: $messageText)
+                .foregroundColor(.primary)
+                .tint(.secondary)
                 .padding()
                 .focused($textFieldFocus)
-                .background(Color.gray.opacity(0.1))
-                .cornerRadius(10)
                 .onSubmit {
                     sendMessage(messageText)
                 }
@@ -26,13 +26,15 @@ struct ComposerView: View {
             Button {
                 sendMessage(messageText)
             } label: {
-                Image(systemName: "paperplane.fill")
+                Image(systemName: "mic")
                     .font(.system(size: 26))
-                    .padding(.horizontal, 10)
+                    .foregroundColor(.secondary)
+                    .padding(.trailing)
             }
         }
-        .padding(.leading, 20)
-        .padding(.trailing, 10)
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(30)
+        .padding(.horizontal, 20)
         .padding(.bottom, 16)
     }
 
@@ -49,6 +51,7 @@ struct ComposerView: View {
 
 struct ComposerView_Previews: PreviewProvider {
     static var previews: some View {
-        ComposerView(sendAction: { _ in })
+        ComposerView(sendAction: { _ in }).preferredColorScheme(.dark)
+        ComposerView(sendAction: { _ in }).preferredColorScheme(.light)
     }
 }
