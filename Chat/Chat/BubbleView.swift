@@ -21,12 +21,12 @@ struct BubbleView: View {
                 .foregroundColor(isMyChat ? .white : .black)
                 .background(
                     isMyChat ?
-                        Color.blue.opacity(0.8) :
-                        Color.gray.opacity(0.1)
+                        Color(hex: "#4E91F7") :
+                        Color(hex: "#F5F7FB")
                 )
-                .cornerRadius(16)
-                .padding(.horizontal, 16)
-                .padding(.bottom, 10)
+                .cornerRadius(16, corners: [.topLeft, .topRight, isMyChat ?  .bottomLeft : .bottomRight])
+                .padding(.horizontal)
+                .padding(.bottom)
 
             if !isMyChat {
                 Spacer()
@@ -37,6 +37,9 @@ struct BubbleView: View {
 
 struct BubbleView_Previews: PreviewProvider {
     static var previews: some View {
-        BubbleView(message: "Hello", isMyChat: false)
+        VStack {
+            BubbleView(message: "How can I best prepare for a job interview in my desired career field?", isMyChat: false)
+            BubbleView(message: "Hello", isMyChat: true)
+        }
     }
 }

@@ -39,15 +39,8 @@ struct ComposerView: View {
     func sendMessage(_ message: String) {
         let newMessage = message.trimmingCharacters(in: .whitespacesAndNewlines)
         withAnimation {
-            sendAction("[USER]: \(newMessage)")
+            sendAction(newMessage)
             messageText = ""
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            withAnimation {
-                let botMessage = getBotResponses(message: newMessage)
-                sendAction(botMessage)
-            }
         }
 
         textFieldFocus = true
