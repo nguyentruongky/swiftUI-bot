@@ -11,7 +11,7 @@ func getBotResponses(message: String) -> String {
     let inputContent = message.lowercased()
 
     switch inputContent {
-    case "hello":
+    case "hello", "hi":
         return "Hey there!"
     case "bye":
         return "Talk to you later!"
