@@ -16,6 +16,7 @@ class ChatViewModel: ObservableObject {
     @Published var isRecording = false
     @Published var transcript = ""
     @Published var messageText = ""
+    var services: MessageServicesList = ChatServices()
 
     func sendMessage(_ message: String) async -> String {
         DispatchQueue.main.async { [weak self] in
@@ -29,7 +30,7 @@ class ChatViewModel: ObservableObject {
             self?.waitingForBot = true
         }
 
-        let botResponse = await SendMessageWorker(message: message).execute()
+        let botResponse = await services.sendMessage(message)
         return botResponse
     }
 }

@@ -15,7 +15,7 @@ func getBotResponses(message: String) -> String {
         return "Hey there!"
     case "bye":
         return "Talk to you later!"
-    case "how are you?":
+    case "how are you":
         return "Good, how are you?"
     default:
         return "Sounds good!"
