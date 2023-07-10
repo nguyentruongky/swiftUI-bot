@@ -8,32 +8,21 @@
 import SwiftUI
 
 struct ChatView: View {
-    @Binding var messages: [ChatContent]
-    @Binding var waitingForBot: Bool
+    @ObservedObject var viewModel: ChatViewModel
 
     var body: some View {
         VStack {
             ScrollView(showsIndicators: false) {
-                ForEach(messages, id: \.id) { message in
-                    switch message {
-                    case let subcontent as Subcontent:
-                        Text(subcontent.data)
-                            .foregroundColor(.gray)
+                ForEach(viewModel.messages, id: \.id) { message in
 
-                    case let myMessage as MyMessage:
-                        BubbleView(message: myMessage.content, isMyChat: true)
+                    chatContent(message: message)
 
-                    case let botMessage as BotMessage:
-                        BubbleView(message: botMessage.content, isMyChat: false)
+                }
+                .rotationEffect(.degrees(180))
+            }
+            .rotationEffect(.degrees(180))
 
-                    default:
-                        Text("")
-                    }
-
-                }.rotationEffect(.degrees(180))
-            }.rotationEffect(.degrees(180))
-
-            if waitingForBot {
+            if viewModel.waitingForBot {
                 HStack {
                     LottieView()
                         .frame(width: 150, height: 150)
@@ -43,17 +32,29 @@ struct ChatView: View {
             }
         }
     }
+
+    @ViewBuilder
+    func chatContent(message: ChatContent) -> some View {
+        switch message {
+        case let subcontent as Subcontent:
+            Text(subcontent.data)
+                .foregroundColor(.gray)
+
+        case let myMessage as MyMessage:
+            BubbleView(message: myMessage.content, isMyChat: true)
+
+        case let botMessage as BotMessage:
+            BubbleView(message: botMessage.content, isMyChat: false)
+
+        default:
+            Text("")
+        }
+    }
 }
 
 struct ChatView_Previews: PreviewProvider {
-    @State static var messages: [ChatContent] = [
-        Subcontent(data: "Today"),
-        MyMessage(content: "Hello"),
-        BotMessage(content: "How are you?")
-    ]
-    @State static var waitingForBot = true
-
+    static let viewModel = ChatViewModel()
     static var previews: some View {
-        ChatView(messages: $messages, waitingForBot: $waitingForBot)
+        ChatView(viewModel: viewModel)
     }
 }

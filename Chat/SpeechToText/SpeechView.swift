@@ -43,7 +43,7 @@ struct SpeechView: View {
             .padding(.bottom, 40)
             .padding(.vertical, 20)
         }
-        .background(Color(hex: "#2F78E3")!)
+        .background(Color("MyBubbleBackground"))
         .onAppear {
             speechManager.checkPermissions()
             startRecording()

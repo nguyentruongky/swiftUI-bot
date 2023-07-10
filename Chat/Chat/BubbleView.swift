@@ -10,6 +10,16 @@ import SwiftUI
 struct BubbleView: View {
     var message: String
     var isMyChat: Bool
+    var foreground: Color {
+        isMyChat ? .white : Color("BotBubbleForeground")
+    }
+
+    var background: Color {
+        isMyChat ?
+            Color("MyBubbleBackground") :
+            Color("BotBubbleBackground")
+    }
+
     var body: some View {
         HStack {
             if isMyChat {
@@ -18,12 +28,8 @@ struct BubbleView: View {
 
             Text(message)
                 .padding()
-                .foregroundColor(isMyChat ? .white : Color("BotBubbleForeground"))
-                .background(
-                    isMyChat ?
-                        Color("MyBubbleBackground") :
-                        Color("BotBubbleBackground")
-                )
+                .foregroundColor(foreground)
+                .background(background)
                 .cornerRadius(16, corners: [.topLeft, .topRight, isMyChat ?  .bottomLeft : .bottomRight])
                 .padding(.horizontal)
                 .padding(.bottom)

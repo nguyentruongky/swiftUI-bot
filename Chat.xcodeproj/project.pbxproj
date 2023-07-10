@@ -30,6 +30,7 @@
 		1AFE73282A5BD81A007BEC55 /* VisualBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE73272A5BD81A007BEC55 /* VisualBarView.swift */; };
 		1AFE732A2A5BD8EA007BEC55 /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE73292A5BD8EA007BEC55 /* SpeechView.swift */; };
 		1AFE73332A5BDE9D007BEC55 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1AFE73322A5BDE9D007BEC55 /* Lottie */; };
+		1AFE73352A5C2A97007BEC55 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE73342A5C2A97007BEC55 /* ChatViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		1AFE73272A5BD81A007BEC55 /* VisualBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualBarView.swift; sourceTree = "<group>"; };
 		1AFE73292A5BD8EA007BEC55 /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
 		1AFE732F2A5BDE22007BEC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AFE73342A5C2A97007BEC55 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				1A3A1E8C2A569A6A000B89AE /* BubbleView.swift */,
 				1A3A1E902A569C12000B89AE /* ChatView.swift */,
+				1AFE73342A5C2A97007BEC55 /* ChatViewModel.swift */,
 				1A3A1E8A2A5697F2000B89AE /* ComposerView.swift */,
 				1A3A1E8E2A569BB3000B89AE /* HeaderView.swift */,
 				1A3A1EA62A57BB13000B89AE /* Message.swift */,
@@ -246,6 +249,7 @@
 				1A3A1E872A567342000B89AE /* BotResponses.swift in Sources */,
 				1A3A1E742A566F44000B89AE /* ChatApp.swift in Sources */,
 				1A3A1E8F2A569BB3000B89AE /* HeaderView.swift in Sources */,
+				1AFE73352A5C2A97007BEC55 /* ChatViewModel.swift in Sources */,
 				1A3A1EA92A57EA41000B89AE /* General.swift in Sources */,
 				1A3A1E9A2A56A2A0000B89AE /* LottieView.swift in Sources */,
 				1A3A1EA72A57BB13000B89AE /* Message.swift in Sources */,

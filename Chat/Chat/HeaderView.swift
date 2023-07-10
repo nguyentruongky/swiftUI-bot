@@ -32,7 +32,7 @@ struct HeaderView: View {
             )
 
             VStack(alignment: .leading) {
-                Text("Good morning, Samantha")
+                Text("Good morning, Ky")
                     .bold()
                     .font(.system(size: 20))
                     .foregroundColor(Color.primary)

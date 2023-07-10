@@ -8,55 +8,45 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var messages: [ChatContent] = [
-        Subcontent(data: "Today"),
-        BotMessage(content: "Welcome to iBot")
-    ]
-    @State var waitingForBot = false
-    @State var isRecording = false
-    @State var transcript = ""
-    @State var messageText = ""
+    @ObservedObject var chatViewModel = ChatViewModel()
 
     var body: some View {
         VStack {
             HeaderView()
-            ChatView(messages: $messages, waitingForBot: $waitingForBot)
-            ComposerView(messageText: $messageText) {
-                withAnimation {
-                    isRecording = true
-                }
-            } sendAction: { message in
-                messages.append(
-                    MyMessage(content: message)
-                )
-                sendMessage(message)
-            }
 
-            if isRecording {
+            ChatView(viewModel: chatViewModel)
+
+            ComposerView(
+                messageText: $chatViewModel.messageText,
+                recordAction: showRecord,
+                sendAction: send
+            )
+
+            if chatViewModel.isRecording {
                 SpeechView(
-                    recording: $isRecording,
-                    transcript: $transcript)
+                    recording: $chatViewModel.isRecording,
+                    transcript: $chatViewModel.transcript)
             }
         }
-        .onChange(of: transcript) { newValue in
+        .onChange(of: chatViewModel.transcript) { newValue in
             if !newValue.isEmpty {
-                messageText = newValue
+                chatViewModel.messageText = newValue
             }
         }
     }
 
-    func sendMessage(_ message: String) {
+    private func showRecord() {
+        withAnimation {
+            chatViewModel.isRecording = true
+        }
+    }
+
+    private func send(message: String) {
         Task {
-            await sleep(seconds: 0.5)
-
+            let botResponse = await chatViewModel.sendMessage(message)
             withAnimation {
-                waitingForBot = true
-            }
-
-            let botResponse = await SendMessageWorker(message: message).execute()
-            withAnimation {
-                waitingForBot = false
-                messages.append(
+                chatViewModel.waitingForBot = false
+                chatViewModel.messages.append(
                     BotMessage(content: botResponse)
                 )
             }
@@ -66,6 +56,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(isRecording: true)
+        ContentView()
     }
 }
