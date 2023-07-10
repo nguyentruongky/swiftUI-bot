@@ -8,16 +8,9 @@
 import SwiftUI
 import CoreData
 
-enum RecordStatus {
-    case recording, processing, idle
-}
-
 struct SpeechView: View {
-    @Binding var recording: Bool
-    @Binding var transcript: String
-    @State var isProcessingText: Bool = false
-    @ObservedObject var mic = MicMonitor(numberOfSamples: 30)
-    let speechManager = SpeechManager()
+    @ObservedObject var viewModel: SpeechViewModel
+    @StateObject var mic = MicMonitor()
 
     // MARK: - View Body
     var body: some View {
@@ -32,10 +25,12 @@ struct SpeechView: View {
             .padding()
 
             VStack {
-                if isProcessingText {
+                if viewModel.recordStatus == .processing {
                     Text("Please wait...")
                         .foregroundColor(.white)
-                } else {
+                }
+
+                if viewModel.recordStatus == .recording {
                     visualizerView()
                 }
             }
@@ -45,7 +40,7 @@ struct SpeechView: View {
         }
         .background(Color("MyBubbleBackground"))
         .onAppear {
-            speechManager.checkPermissions()
+            viewModel.speechManager.checkPermissions()
             startRecording()
         }
         .onTapGesture {
@@ -57,37 +52,31 @@ struct SpeechView: View {
         let duration = Int(mic.duration)
         let minutes = (duration % 3600) / 60
         let seconds = (duration % 3600) % 60
+        print(mic.soundSamples)
         return String(format: "%02d:%02d", minutes, seconds)
     }
 
     private func startRecording() {
         mic.startMonitoring()
-        speechManager.start { speechText in
-            guard let text = speechText else {
-                withAnimation {
-                    recording = false
-                    transcript = ""
-                }
-                return
-            }
-            print(text)
+        viewModel.recordStatus = .recording
+        viewModel.speechManager.start { speechText in
+            print(speechText ?? "No speech")
             withAnimation {
-                transcript = text
-                recording = false
+                viewModel.recordStatus = .idle
+                viewModel.transcript = speechText ?? ""
             }
         }
-        speechManager.isRecording = true
+        viewModel.speechManager.isRecording = true
     }
 
     private func stopRecording() {
-        isProcessingText = true
+        viewModel.stopRecording()
         mic.stopMonitoring()
-        speechManager.stopRecording()
-        speechManager.isRecording = false
     }
 
     private func normolizedSoundLevel(level: Float) -> CGFloat {
         let level = max(0.2, CGFloat(level) + 50) / 2
+        print(level)
         return CGFloat(level * 4)
     }
 
@@ -103,13 +92,7 @@ struct SpeechView: View {
 }
 
 struct SpeechView_Previews: PreviewProvider {
-    @State static var isRecording = false
-    @State static var transcript = ""
-    @State static var isProcessingText: Bool = false
     static var previews: some View {
-        SpeechView(recording: $isRecording,
-                   transcript: $transcript,
-                   isProcessingText: isProcessingText
-        ).preferredColorScheme(.dark)
+        SpeechView(viewModel: SpeechViewModel()).preferredColorScheme(.dark)
     }
 }

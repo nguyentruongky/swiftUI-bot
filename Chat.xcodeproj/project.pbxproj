@@ -31,6 +31,7 @@
 		1AFE732A2A5BD8EA007BEC55 /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE73292A5BD8EA007BEC55 /* SpeechView.swift */; };
 		1AFE73332A5BDE9D007BEC55 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1AFE73322A5BDE9D007BEC55 /* Lottie */; };
 		1AFE73352A5C2A97007BEC55 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE73342A5C2A97007BEC55 /* ChatViewModel.swift */; };
+		1AFE73372A5C60FF007BEC55 /* SpeechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE73362A5C60FF007BEC55 /* SpeechViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		1AFE73292A5BD8EA007BEC55 /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
 		1AFE732F2A5BDE22007BEC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AFE73342A5C2A97007BEC55 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		1AFE73362A5C60FF007BEC55 /* SpeechViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				1AFE73252A5BD80D007BEC55 /* MicManager.swift */,
 				1AFE73232A5BD7B3007BEC55 /* SpeechManager.swift */,
 				1AFE73292A5BD8EA007BEC55 /* SpeechView.swift */,
+				1AFE73362A5C60FF007BEC55 /* SpeechViewModel.swift */,
 				1AFE73272A5BD81A007BEC55 /* VisualBarView.swift */,
 			);
 			path = SpeechToText;
@@ -242,6 +245,7 @@
 				1AFE73242A5BD7B3007BEC55 /* SpeechManager.swift in Sources */,
 				1A3A1E8D2A569A6B000B89AE /* BubbleView.swift in Sources */,
 				1AFE73282A5BD81A007BEC55 /* VisualBarView.swift in Sources */,
+				1AFE73372A5C60FF007BEC55 /* SpeechViewModel.swift in Sources */,
 				1A3A1EA52A57B15F000B89AE /* RoundView.swift in Sources */,
 				1A3A1E8B2A5697F2000B89AE /* ComposerView.swift in Sources */,
 				1A3A1E912A569C12000B89AE /* ChatView.swift in Sources */,

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var chatViewModel = ChatViewModel()
+    @ObservedObject var speechViewModel = SpeechViewModel()
 
     var body: some View {
         VStack {
@@ -23,12 +24,13 @@ struct ContentView: View {
             )
 
             if chatViewModel.isRecording {
-                SpeechView(
-                    recording: $chatViewModel.isRecording,
-                    transcript: $chatViewModel.transcript)
+                SpeechView(viewModel: speechViewModel)
             }
         }
-        .onChange(of: chatViewModel.transcript) { newValue in
+        .onReceive(speechViewModel.$recordStatus, perform: { value in
+            chatViewModel.isRecording = value != .idle
+        })
+        .onChange(of: speechViewModel.transcript) { newValue in
             if !newValue.isEmpty {
                 chatViewModel.messageText = newValue
             }

@@ -40,6 +40,7 @@ class SpeechManager {
         if isRecording {
             stopRecording()
         } else {
+            isRecording = true
             startRecording(completion: completion)
         }
     }
@@ -89,6 +90,7 @@ class SpeechManager {
     }
 
     func stopRecording() {
+        isRecording = false
         /// Marks the end of audio input for the recognition request.
         recognitionRequest?.endAudio()
         /// Deinit request

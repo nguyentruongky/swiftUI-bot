@@ -15,14 +15,13 @@ final class MicMonitor: ObservableObject {
     private var timer: Timer?
 
     private var currentSample: Int
-    private let numberOfSamples: Int
+    private let numberOfSamples: Int = 30
 
     @Published public var soundSamples: [Float]
     @Published public var duration: Double
 
     // MARK: - Init
-    init(numberOfSamples: Int) {
-        self.numberOfSamples = numberOfSamples > 0 ? numberOfSamples : 10
+    init() {
         soundSamples = [Float](repeating: .zero, count: numberOfSamples)
         currentSample = 0
         duration = 0
