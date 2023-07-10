@@ -16,7 +16,6 @@
 		1A3A1E8D2A569A6B000B89AE /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A1E8C2A569A6A000B89AE /* BubbleView.swift */; };
 		1A3A1E8F2A569BB3000B89AE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A1E8E2A569BB3000B89AE /* HeaderView.swift */; };
 		1A3A1E912A569C12000B89AE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A1E902A569C12000B89AE /* ChatView.swift */; };
-		1A3A1E942A56A023000B89AE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3A1E932A56A023000B89AE /* Lottie */; };
 		1A3A1E962A56A030000B89AE /* chatbotAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A3A1E952A56A030000B89AE /* chatbotAnimation.json */; };
 		1A3A1E9A2A56A2A0000B89AE /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A1E992A56A2A0000B89AE /* LottieView.swift */; };
 		1A3A1E9E2A56A64D000B89AE /* SendMessageWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A1E9D2A56A64D000B89AE /* SendMessageWorker.swift */; };
@@ -25,6 +24,12 @@
 		1A3A1EA72A57BB13000B89AE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A1EA62A57BB13000B89AE /* Message.swift */; };
 		1A3A1EA92A57EA41000B89AE /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A1EA82A57EA41000B89AE /* General.swift */; };
 		1A3A1EAB2A57F624000B89AE /* newBot.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A3A1EAA2A57F624000B89AE /* newBot.json */; };
+		1A3A1EAD2A57FF28000B89AE /* AudioVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A1EAC2A57FF28000B89AE /* AudioVisualizer.swift */; };
+		1AFE73242A5BD7B3007BEC55 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE73232A5BD7B3007BEC55 /* SpeechManager.swift */; };
+		1AFE73262A5BD80D007BEC55 /* MicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE73252A5BD80D007BEC55 /* MicManager.swift */; };
+		1AFE73282A5BD81A007BEC55 /* VisualBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE73272A5BD81A007BEC55 /* VisualBarView.swift */; };
+		1AFE732A2A5BD8EA007BEC55 /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE73292A5BD8EA007BEC55 /* SpeechView.swift */; };
+		1AFE73332A5BDE9D007BEC55 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1AFE73322A5BDE9D007BEC55 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,12 @@
 		1A3A1EA62A57BB13000B89AE /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		1A3A1EA82A57EA41000B89AE /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
 		1A3A1EAA2A57F624000B89AE /* newBot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newBot.json; sourceTree = "<group>"; };
+		1A3A1EAC2A57FF28000B89AE /* AudioVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVisualizer.swift; sourceTree = "<group>"; };
+		1AFE73232A5BD7B3007BEC55 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		1AFE73252A5BD80D007BEC55 /* MicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicManager.swift; sourceTree = "<group>"; };
+		1AFE73272A5BD81A007BEC55 /* VisualBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualBarView.swift; sourceTree = "<group>"; };
+		1AFE73292A5BD8EA007BEC55 /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
+		1AFE732F2A5BDE22007BEC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A3A1E942A56A023000B89AE /* Lottie in Frameworks */,
+				1AFE73332A5BDE9D007BEC55 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +94,8 @@
 				1A3A1EA12A57AF62000B89AE /* Chat */,
 				1A3A1EA02A57AF49000B89AE /* Common */,
 				1A3A1E792A566F48000B89AE /* Preview Content */,
+				1AFE73222A5BD797007BEC55 /* SpeechToText */,
+				1AFE732F2A5BDE22007BEC55 /* Info.plist */,
 				1A3A1E862A567342000B89AE /* BotResponses.swift */,
 				1A3A1E732A566F44000B89AE /* ChatApp.swift */,
 				1A3A1E752A566F44000B89AE /* ContentView.swift */,
@@ -102,9 +115,9 @@
 		1A3A1E9F2A57AF3C000B89AE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				1A3A1EAA2A57F624000B89AE /* newBot.json */,
 				1A3A1E772A566F48000B89AE /* Assets.xcassets */,
 				1A3A1E952A56A030000B89AE /* chatbotAnimation.json */,
+				1A3A1EAA2A57F624000B89AE /* newBot.json */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -112,10 +125,11 @@
 		1A3A1EA02A57AF49000B89AE /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				1A3A1E992A56A2A0000B89AE /* LottieView.swift */,
+				1A3A1EAC2A57FF28000B89AE /* AudioVisualizer.swift */,
 				1A3A1EA22A57B02E000B89AE /* ColorExtension.swift */,
-				1A3A1EA42A57B15F000B89AE /* RoundView.swift */,
 				1A3A1EA82A57EA41000B89AE /* General.swift */,
+				1A3A1E992A56A2A0000B89AE /* LottieView.swift */,
+				1A3A1EA42A57B15F000B89AE /* RoundView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -130,6 +144,17 @@
 				1A3A1EA62A57BB13000B89AE /* Message.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		1AFE73222A5BD797007BEC55 /* SpeechToText */ = {
+			isa = PBXGroup;
+			children = (
+				1AFE73252A5BD80D007BEC55 /* MicManager.swift */,
+				1AFE73232A5BD7B3007BEC55 /* SpeechManager.swift */,
+				1AFE73292A5BD8EA007BEC55 /* SpeechView.swift */,
+				1AFE73272A5BD81A007BEC55 /* VisualBarView.swift */,
+			);
+			path = SpeechToText;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +174,7 @@
 			);
 			name = Chat;
 			packageProductDependencies = (
-				1A3A1E932A56A023000B89AE /* Lottie */,
+				1AFE73322A5BDE9D007BEC55 /* Lottie */,
 			);
 			productName = Chat;
 			productReference = 1A3A1E702A566F44000B89AE /* Chat.app */;
@@ -180,7 +205,7 @@
 			);
 			mainGroup = 1A3A1E672A566F44000B89AE;
 			packageReferences = (
-				1A3A1E922A56A023000B89AE /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				1AFE73312A5BDE9D007BEC55 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 1A3A1E712A566F44000B89AE /* Products */;
 			projectDirPath = "";
@@ -210,7 +235,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3A1EAD2A57FF28000B89AE /* AudioVisualizer.swift in Sources */,
+				1AFE73242A5BD7B3007BEC55 /* SpeechManager.swift in Sources */,
 				1A3A1E8D2A569A6B000B89AE /* BubbleView.swift in Sources */,
+				1AFE73282A5BD81A007BEC55 /* VisualBarView.swift in Sources */,
 				1A3A1EA52A57B15F000B89AE /* RoundView.swift in Sources */,
 				1A3A1E8B2A5697F2000B89AE /* ComposerView.swift in Sources */,
 				1A3A1E912A569C12000B89AE /* ChatView.swift in Sources */,
@@ -223,6 +251,8 @@
 				1A3A1EA72A57BB13000B89AE /* Message.swift in Sources */,
 				1A3A1E9E2A56A64D000B89AE /* SendMessageWorker.swift in Sources */,
 				1A3A1EA32A57B02E000B89AE /* ColorExtension.swift in Sources */,
+				1AFE732A2A5BD8EA007BEC55 /* SpeechView.swift in Sources */,
+				1AFE73262A5BD80D007BEC55 /* MicManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +384,8 @@
 				DEVELOPMENT_TEAM = YM62LBZ4XN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Chat/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe the text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -383,6 +415,8 @@
 				DEVELOPMENT_TEAM = YM62LBZ4XN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Chat/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe the text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -425,20 +459,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1A3A1E922A56A023000B89AE /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		1AFE73312A5BDE9D007BEC55 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1A3A1E932A56A023000B89AE /* Lottie */ = {
+		1AFE73322A5BDE9D007BEC55 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1A3A1E922A56A023000B89AE /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = 1AFE73312A5BDE9D007BEC55 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */

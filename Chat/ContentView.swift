@@ -13,16 +13,34 @@ struct ContentView: View {
         BotMessage(content: "Welcome to iBot")
     ]
     @State var waitingForBot = false
+    @State var isRecording = false
+    @State var transcript = ""
+    @State var messageText = ""
 
     var body: some View {
         VStack {
             HeaderView()
             ChatView(messages: $messages, waitingForBot: $waitingForBot)
-            ComposerView { message in
+            ComposerView(messageText: $messageText) {
+                withAnimation {
+                    isRecording = true
+                }
+            } sendAction: { message in
                 messages.append(
                     MyMessage(content: message)
                 )
                 sendMessage(message)
+            }
+
+            if isRecording {
+                SpeechView(
+                    recording: $isRecording,
+                    transcript: $transcript)
+            }
+        }
+        .onChange(of: transcript) { newValue in
+            if !newValue.isEmpty {
+                messageText = newValue
             }
         }
     }
@@ -48,6 +66,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(isRecording: true)
     }
 }
